@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
+const router = require("./routes/routes");
+
 const server = "127.0.0.1:27017";
 const database = "salon1";
 
@@ -19,5 +21,7 @@ mongoose
   });
 
 const app = express();
+
+app.use("/", router);
 
 app.listen(8000, () => console.log("Server running on port 8000"));
